@@ -1,0 +1,9 @@
+__pycache__/
+venv
+.venv/
+env
+.env
+
+
+my_ssh
+my_ssh.pub
