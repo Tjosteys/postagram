@@ -152,5 +152,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core_user.User'
 
-# gittoken
-# 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
