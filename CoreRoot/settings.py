@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'core.user',
     'core.auth',
     'core.post',
+    'core.comment',
 ]
 
 # this part for access control for rest_framework
