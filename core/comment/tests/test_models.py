@@ -6,6 +6,7 @@ from core.comment.models import Comment
 
 
 # Writing testcase for comment model
+@pytest.mark.django_db
 def test_create_comment(user, post):
 	comment = Comment.objects.create(author=user, post=post, body="Test Comment Body")
 	assert comment.author == user
