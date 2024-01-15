@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-from environ import Env    #Python package for reading enviroment variables
+from environs import Env    #Python package for reading enviroment variables
 env = Env()
 env.read_env()
 
@@ -29,7 +29,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False) #edited
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -98,17 +98,20 @@ WSGI_APPLICATION = 'CoreRoot.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': env("DATABASE_ENGINE", default='django.db.backends.postgresql_psycopg2'),
-        'NAME': env("DATABASE_NAME", default='Postadb'),
-        'USER': env("DATABASE_USER", default='postgres'),
-        'PASSWORD': env("DATABASE_PASSWORD", default='Platkid_404'),
-        'HOST': env("DATABASE_HOST", default='localhost'),
-        'PORT': env("DATABASE_PORT", default='5432'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': env("DATABASE_ENGINE", default='django.db.backends.postgresql_psycopg2'),
+#         'NAME': env("DATABASE_NAME", default='Postadb'),
+#         'USER': env("DATABASE_USER", default='postgres'),
+#         'PASSWORD': env("DATABASE_PASSWORD", default='Platkid_404'),
+#         'HOST': env("DATABASE_HOST", default='localhost'),
+#         'PORT': env("DATABASE_PORT", default='5432'),
+#     }
+# }
 
+DATABASES = {
+    "default": env.dj_db_url("DATABASE_URL")
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -3,7 +3,7 @@ venv
 .venv/
 env
 .env
-
+db.sqlite3
 
 my_ssh
 my_ssh.pub
